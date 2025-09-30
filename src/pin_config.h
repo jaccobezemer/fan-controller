@@ -1,21 +1,14 @@
 #pragma once
 
-#define WIFI_SSID                    "Your-ssid"
-#define WIFI_PASSWORD               "Your-password"
-
-#define WIFI_CONNECT_WAIT_MAX        (30 * 1000)
-
-#define NTP_SERVER1                  "pool.ntp.org"
-#define NTP_SERVER2                  "time.nist.gov"
-#define GMT_OFFSET_SEC               (3600 * 8)
-#define DAY_LIGHT_OFFSET_SEC         0
-
 /* LCD CONFIG */
 #define EXAMPLE_LCD_PIXEL_CLOCK_HZ   (6528000) //(10 * 1000 * 1000)
+// #define EXAMPLE_LCD_PIXEL_CLOCK_HZ   (20 * 1000 * 1000)
 // The pixel number in horizontal and vertical
 #define EXAMPLE_LCD_H_RES            320
 #define EXAMPLE_LCD_V_RES            170
-#define LVGL_LCD_BUF_SIZE            (EXAMPLE_LCD_H_RES * EXAMPLE_LCD_V_RES)
+// #define LVGL_LCD_BUF_SIZE            (EXAMPLE_LCD_H_RES * EXAMPLE_LCD_V_RES) ->
+// assert failed: panel_io_i80_tx_color esp_lcd_panel_io_i80.c:449 (color_size <= (bus->num_dma_nodes * DMA_DESCRIPTOR_BUFFER_MAX_SIZE) && "color bytes too long, enlarge max_transfer_bytes")
+#define LVGL_LCD_BUF_SIZE            (EXAMPLE_LCD_H_RES * 20)  // 20 lijnen buffer
 #define EXAMPLE_PSRAM_DATA_ALIGNMENT 64
 
 /*ESP32S3*/

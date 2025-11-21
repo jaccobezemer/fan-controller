@@ -6,6 +6,12 @@
 #include "esp_err.h"
 #include "pin_config.h"
 
+#include <WiFi.h>
+
+// WiFi credentials
+const char* ssid = "GS7";
+const char* password = "bitshomenetwork";
+
 #define MAX_BRIGHTNESS  4
 
 // ======================= GLOBAAL =======================
@@ -190,6 +196,26 @@ void create_fan(void)
 void setup()
 {
     Serial.begin(115200);
+
+    Serial.begin(115200);
+    delay(1000);
+    
+    Serial.println("\nVerbinden met WiFi...");
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(ssid, password);
+    
+    // Wacht tot verbonden
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    
+    Serial.println("\nWiFi verbonden!");
+    Serial.print("IP adres: ");
+    Serial.println(WiFi.localIP());
+    Serial.print("Signal strength (RSSI): ");
+    Serial.println(WiFi.RSSI());
+
     delay(500);
     Serial.println("Start LVGL 9 Fan-demo...");
     lcd_panel_init();

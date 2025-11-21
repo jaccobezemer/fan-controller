@@ -9,8 +9,8 @@
 #include <WiFi.h>
 
 // WiFi credentials
-const char* ssid = "GS7";
-const char* password = "bitshomenetwork";
+const char* ssid = "Your_SSID";
+const char* password = "qwerty12345";
 
 #define MAX_BRIGHTNESS  4
 
